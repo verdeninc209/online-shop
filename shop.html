@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="pvi.png" type="images/jpg">
+	<meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Online-shop & Sorted menu </title>
+
+	<style type="text/css">
+		body{
+			background: #56bc58;
+		}
+
+		footer{
+			font-size: 45px;
+			top: 20px;
+			border: 1px solid white;
+			margin: 60px;
+			padding: 20px;
+		}
+
+      
+        h1.g{
+        	font-size: 50px;
+          left: 50%;
+         color: #ffffff;
+         text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff0000, 0 0 80px #ff0000, 0 0 90px #ff0000, 0 0 100px #ff0000, 0 0 150px #ff0000;
+        }
+
+        .goods-card{
+        	padding: 40px;
+        	margin: 60px;
+        	border: 1px solid white;
+        }
+         
+         #sort-asc{
+         	font-size: 20px;
+             width: 500px;
+             height: 60px;
+             background: linear-gradient(to right, #493ea5, #3ea588 );
+             border-radius: 200px;
+             border: 1px solid #3d4411;
+             cursor: progress;
+         }
+
+         #sort-desc{
+         		font-size: 20px;
+             width: 500px;
+             height: 60px;
+             background: linear-gradient(to right, #493ea5, #3ea588 );
+             border-radius: 200px;
+             border: 1px solid #3d4411;
+             cursor: progress;
+         }
+
+         #sort-rating{
+         		font-size: 20px;
+             width: 500px;
+             height: 60px;
+             background: linear-gradient(to right, #493ea5, #3ea588 );
+             border-radius: 200px;
+             border: 1px solid #3d4411;
+             cursor: progress;
+         }
+
+       .buy{
+       	  font-size: 15px;      	  
+       	  width: 120px;
+       	  height: 50px;
+       	  background-color: #004f45;
+       	  border-radius: 30px; 
+       	  border: 1px solid #120042;
+       	  cursor: progress;
+
+       }
+       .buy:hover{
+       	background: linear-gradient(to left, #80178c, #4a2ea5);
+       }
+
+
+       .modal{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+    
+
+       .modal2{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content2{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close2{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+      
+        .modal3{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content3{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close3{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		  .modal4{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content4{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close4{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		  .modal5{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content5{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close5{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+        .modal6{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content6{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close6{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+    
+      .modal7{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content7{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close7{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+		  .modal8{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0,0,0,0); 
+		}
+
+		.modal-content8{
+			background-color: #fefefe;
+			margin: 15% auto;
+			padding: 20px;
+			border: 1px solid blue ;
+			width: 80%;
+		}
+		.close8{
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+
+
+
+
+
+
+	</style>
+
+
+	<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+</head>
+<body>
+	<div align="center">  <header><h1 class="g"> Pavel Verden Shop! </h1>  </header> </div>
+
+  <div align="center"> <img src="pvi.png" alt="" width="1290" height="720"> </div>
+
+ <div class="container">
+ 	<div class="site-header"></div>
+ 	<h1> Filters item</h1>
+ 	<hr>
+
+<div align="center">
+ 	<button id="sort-asc">Price growing </button>
+ 	<button id="sort-desc"> Price descending </button>
+ 	<button id="sort-rating">Sort-raiting </button>
+ </div>
+
+ 	<!-- <div id="nav">
+ 	 	<div class="nav-item" data-sort="2" data-desc="4"> Test string 2 </div>
+ 	 	<div class="nav-item" data-sort="3" data-desc="1"> Test string 3 </div>
+        <div class="nav-item" data-sort="1" data-desc="3"> Test string 1 </div>
+        <div class="nav-item" data-sort="4" data-desc="2"> Test string 4 </div>
+</div> -->
+
+
+<div class="clearfix"></div>
+<hr>
+  
+  <div class="goods-wrap">
+ 
+    <div class="goods-card" data-price="800" data-rating="1">
+    	<img src="macbook.jpg" alt="">
+    	<h1> Macbook pro for developers. </h1>
+    	 <p> 800$ </p>
+    	 <button id="myBtn" class="buy"> Buy </button>
+    	 <div id="myModal" class="modal">
+         <div class="modal-content">
+	       <span class="close"> &times; </span>
+	      <font size="4">  <p>By Macbook Pro! Congratulations, that your right choose! </p>
+	        <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+	    </div>
+       </div>
+    	</div>
+
+
+    	    <div class="goods-card" data-price="180" data-rating="2">
+    	<img src="win.jpg" alt="">
+    	<h1> Windows 10 Pro for developers. </h1>
+    	 <p> 180$ </p>
+    	 <button id="myBtn2" class="buy"> Buy </button>
+    	  <div id="myModal2" class="modal2">
+         <div class="modal-content2">
+	       <span class="close2"> &times; </span>
+	        <p> By Windows 10 Pro! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+	    </div>
+       </div>
+    	</div>
+    	</div>
+
+   <div class="goods-card" data-price="80" data-rating="3">
+    	<img src="guard.jpg" alt="">
+    	<h1> Rush Guard for MMA training. </h1>
+    	 <p> 80$ </p>
+    	 <button id="myBtn3" class="buy"> Buy </button>
+            <div id="myModal3" class="modal3">
+         <div class="modal-content3">
+	       <span class="close3"> &times; </span>
+	        <p> By Rush Guard! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+	      </div></div></div>
+
+    	
+
+        <div class="goods-card" data-price="60" data-rating="4">
+    	<img src="glovesmma.jpg" alt="">
+    	<h1> Gloves for MMA 4 Oz </h1>
+    	 <p> 60$ </p>
+    	 <button id="myBtn4" class="buy"> Buy </button>
+    	    <div id="myModal4" class="modal4">
+         <div class="modal-content4">
+	       <span class="close4"> &times; </span>
+	        <p> By Gloves 4Oz ! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	             	</font>
+	                </form>
+    	         </div>
+         </div>
+         </div>
+           </div>
+  
+        <div class="goods-card" data-price="90" data-rating="6">
+    	<img src="react.jpg" alt="">
+    	<h1> Cources for React.js and other frameworks </h1>
+    	 <p> 90$ </p>
+    	 <button id="myBtn5" class="buy"> Buy </button>
+    	   <div id="myModal5" class="modal5">
+         <div class="modal-content5">
+	       <span class="close5"> &times; </span>
+	        <p> By Cources for React.js ! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+             </div>
+           </div></div>
+    	</div>
+     
+
+        <div class="goods-card" data-price="120" data-rating="8">
+    	<img src="mon.png" alt="">
+    	<h1> 4K Monitor for Windows 10 developers </h1>
+    	 <p> 120$ </p>
+    	 <button id="myBtn6" class="buy"> Buy </button>
+            <div id="myModal6" class="modal6">
+         <div class="modal-content6">
+	       <span class="close6"> &times; </span>
+	        <p> By Windows 10 Pro! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+           </div></div></div>
+    	</div>
+
+
+        <div class="goods-card" data-price="80" data-rating="5">
+        	<img src="wrestling.jpg" alt="">
+    	<h1> Sambo jacket </h1>
+    	 <p> 80$ </p>
+    	 <button id="myBtn7" class="buy"> Buy </button>
+    	  <div id="myModal7" class="modal7">
+         <div class="modal-content7">
+	       <span class="close7"> &times; </span>
+	        <p> By Windows 10 Pro! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+    	</div></div></div>
+   
+
+      <div class="goods-card" data-price="100" data-rating="7">
+    	<img src="AS.png" alt="">
+    	<h1>   Android Studio guides and courses </h1>
+    	 <p> 100$ </p>
+    	 <button id="myBtn8" class="buy"> Buy </button>
+    	  <div id="myModal8" class="modal8">
+         <div class="modal-content8">
+	       <span class="close8"> &times; </span>
+	        <p> By Windows 10 Pro! Congratulations, that your right choose!  </p>
+	         <form method="post" action="buy">
+	        	<input type="text" name="client's-name" placeholder="Enter your name">
+	        	 <input type="email" name="email" placeholder="Enter your Email">
+	        	  <input type="phone-number" name="phone" placeholder="Your phone number">
+	        	   <p> Choose payment method</p>
+	        	    <input type="radio" name="ewallet"> Electro Wallets
+	        	    <input type="radio" name="card"> Bank Cards
+	        	    <input type="card-number" name="cardnumber" placeholder="Enter card number">
+	        	     <button type="submit">Confirm </button>
+	        	</font>
+	          </form>
+    	</div></div></div></div>
+
+<div class="clearfix"></div>
+
+    </div>
+
+
+<script type="text/javascript" src="marketplace.js"></script>
+
+ <div align="center"> <footer> 2019 Pavel Verden Inc® </footer> </div>
+</body>
+</html>
